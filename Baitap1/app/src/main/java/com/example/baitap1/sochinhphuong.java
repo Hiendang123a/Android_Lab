@@ -85,7 +85,6 @@ public class sochinhphuong extends AppCompatActivity {
                 {
                     Toast.makeText(this, "Số lượng quá lớn, hãy nhập lại!", Toast.LENGTH_SHORT).show();
                 }
-
             }
             else
             {
