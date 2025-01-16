@@ -49,35 +49,43 @@ public class sochinhphuong extends AppCompatActivity {
             if(!TextUtils.isEmpty(edt_number.getText().toString()))
             {
                 int input = Integer.parseInt(edt_number.getText().toString());
-                ArrayList<Integer> numberList = new ArrayList<>();
-
-                Random random = new Random();
-                for (int i = 0; i < input; i++) {
-                    numberList.add(random.nextInt(1000));
-                }
-
-                StringBuilder resultText = new StringBuilder("Mảng ngẫu nhiên: ");
-                for (int i = 0; i < numberList.size(); i++) {
-                    resultText.append(numberList.get(i));
-                    if (i < numberList.size() - 1) {
-                        resultText.append(", ");
-                    }
-                }
-                txt_chinhphuong.setText(resultText);
-                StringBuilder toastText = new StringBuilder();
-                for (int number : numberList) {
-                    if (isPerfectSquare(number)) {
-                        toastText.append(number + ", ");
-                    }
-                }
-                if(toastText.length() > 0)
+                if(input < 150)
                 {
-                    Toast.makeText(this, toastText + "là số chính phương", Toast.LENGTH_SHORT).show();
+                    ArrayList<Integer> numberList = new ArrayList<>();
+
+                    Random random = new Random();
+                    for (int i = 0; i < input; i++) {
+                        numberList.add(random.nextInt(1000));
+                    }
+
+                    StringBuilder resultText = new StringBuilder("Mảng ngẫu nhiên: ");
+                    for (int i = 0; i < numberList.size(); i++) {
+                        resultText.append(numberList.get(i));
+                        if (i < numberList.size() - 1) {
+                            resultText.append(", ");
+                        }
+                    }
+                    txt_chinhphuong.setText(resultText);
+                    StringBuilder toastText = new StringBuilder();
+                    for (int number : numberList) {
+                        if (isPerfectSquare(number)) {
+                            toastText.append(number + ", ");
+                        }
+                    }
+                    if(toastText.length() > 0)
+                    {
+                        Toast.makeText(this, toastText + "là số chính phương", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "Không có số chính phương", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
-                    Toast.makeText(this, "Không có số chính phương", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Số lượng quá lớn, hãy nhập lại!", Toast.LENGTH_SHORT).show();
                 }
+
             }
             else
             {
