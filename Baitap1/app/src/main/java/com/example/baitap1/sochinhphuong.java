@@ -96,7 +96,6 @@ public class sochinhphuong extends AppCompatActivity {
     public boolean isPerfectSquare(int number) {
         if (number < 0)
             return false;
-
         double sqrt = Math.sqrt(number);
         return sqrt == Math.floor(sqrt);
     }
